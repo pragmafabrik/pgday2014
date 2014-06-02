@@ -102,11 +102,11 @@
           <h2>Convertisseurs de Pomm</h2>
           <p>
             <ul style="list-style-type: none;">
-              <li>&#10149; boolean, <strike>bitchar, bitvar</strike></li>
+              <li>&#10149; boolean, <strike>bitchar</strike>, <strike>bitvar</strike></li>
               <li>&#10149; strings, uuid, xml, json, inet</li>
               <li>&#10149; numbers, timestamps with time zone, intervals</li>
               <li>&#10149; integer et timestamps, ranges</li>
-              <li>&#10149; point, circle, segment, <strike>box, polygon</strike></li>
+              <li>&#10149; point, circle, segment, <strike>box</strike>, <strike>polygon</strike></li>
               <li>&#10149; HStore, LTree, ts_vector, bytea</li>
               <li>&#10149; types composites, objets</li>
               <li>&#10149; tableaux de tous les types ci dessus</li>
@@ -115,20 +115,114 @@
           </p>
         </section>
 
-        <section data-background="img/outils.jpg">
-          <h2>Types &amp; opérateurs</h2>
-          <ul style="list-style-type: none;">
-            <li> Chaque type de Postgresql vient avec </li>
-            <li><ul style="list-style-type: none;">
-              <li> &#10149; ses opérateurs </li>
-              <li> &#10149; ses fonctions</li>
-            </ul></li>
-          </ul>
+        <section>
+          <section data-background="img/outils.jpg">
+            <h2>Rangeons un peu</h2>
+          </section>
+          <section>
+            <h2>Rangeons un peu</h2>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Types contenus (texte, nombres, dates, durée, point)</li>
+              <li>&#10149; Types couvrants (cercle, range, boite)</li>
+              <li>&#10149; Types structurés (tableaux, JSON, XML, HStore, LTree, composite)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Types &amp; opérateurs</h2>
+            <ul style="list-style-type: none;">
+              <li> Chaque type de Postgresql vient avec </li>
+              <li><ul style="list-style-type: none;">
+                <li> &#10149; ses opérateurs </li>
+                <li> &#10149; ses fonctions</li>
+              </ul></li>
+            </ul>
+          </section>
         </section>
 
         <section>
-          <h2>Comment gere-t-on des tags ?</h2>
+          <section data-background="img/resistors.jpg">
+            <h2>Nous rangeons, ils cherchent</h2>
+            <h3>Chercher des résistances électroniques chez Farnell</h3>
+            <p><img src="img/filtres.png" /></p>
+          </section>
+          <section>
+            <h2>Nous rangeons, ils cherchent</h2>
+            <h3>Résistances électroniques chez Farnell</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; 100 000 références</li>
+              <li>&#10149; 15 000 références cat. « traversante »</li>
+              <li>&#10149; 8 axes de recherche</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Une résistance en valeurs scalaires</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Une valeur ohmique (0,1 à 10e⁶Ω)</li>
+              <li>&#10149; Une précision (5%, à 0,1%)</li>
+              <li>&#10149; Une tolérance (1/8 à 150W)</li>
+              <li>la valeur ohmique annoncée dépend de la précision</li>
+              <li>La tolérance est toujours un minimum</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Cherchez les dans un range !</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Permet de proposer les résultats les plus proches</li>
+              <li>&#10149; Permet de proposer une interface simple</li>
+              <li>&#10149; Ne gère que les entiers et les timestamps !</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Range</h3>
+            <p><img src="img/caliper.png" /></p>
+            <ul style="list-style-type: none;">
+              <li>&#10149; union, intersection, recouvrement, contenu</li>
+              <li>&#10149; à droite, à gauche, adjacence</li>
+              <li>&#10149; peuvent être utilisés pour créer des contraintes d'exclusion</li>
+            </ul>
+          </section>
         </section>
+
+        <section>
+          <section data-background="img/archives.jpg">
+            <h2>Catégoriser ses contenus</h2>
+          </section>
+          <section>
+            <h3>Catégoriser ses contenus</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Catégories arborescentes</li>
+              <li class="fragment">&#10149; Flat tags</li>
+              <li class="fragment">&#10149; Nested tags</li>
+            </ul>
+          </section>
+          <section>
+            <h3>LTree - chemins matérialisés</h3>
+            <pre><code>'restaurant.italien.pizza'</code></pre>
+            <code class="fragment"><pre class='vimsql'>
+<span class="Statement">select</span> * <span class="Special">from</span> restaurant <span class="Special">where</span> tag ~ <span class="String">'*.italien.*'</span>;
+            </pre></code>
+          </section>
+          <section>
+            <h3>LTree + tableaux</h3>
+            <code><pre class="vimsql">{'public.restaurant.italien.pizza', 'public.cuisine.rapide', 'private.evenement.a_la_une'}</pre></code>
+            <code class="fragment"><pre class='vimsql'>
+<span class="Statement">select</span> * <span class="Special">from</span> restaurant <span class="Special">where</span> <span class="String">'*.italien.*'</span> ~ <span class="Statement">ANY</span> (tags);
+            </pre></code>
+          </section>
+      </section>
+      <section>
+        <section data-background="img/tourbabel.jpg">
+          <h2>Internationalisation (I18N)</h2>
+        </section>
+        <section>
+          <h2>Internationalisation (I18N)</h2>
+          <ul style="list-style-type: none;">
+            <li>&#10149; Proposer des libellés en chaque langue</li>
+            <li>&#10149; Une jointure par label</li>
+          </ul>
+          <p><img src="img/cocotte-pression.jpg" /></p>
+        </section>
+      </section>
       </div>
 
     </div>
