@@ -51,15 +51,15 @@
         <section>
           <h2>À propos</h2>
           <p>
-            <ul>
-                <li> Grégoire HUBERT</li>
-                <li> Fondateur de PragmaFabrik </li>
-                <li> Consultant Postgresql &amp; PHP</li>
-                <li> Auteur de Pomm </li>
-            </ul>
+          <ul>
+            <li> Grégoire HUBERT</li>
+            <li> Fondateur de PragmaFabrik </li>
+            <li> Consultant Postgresql &amp; PHP</li>
+            <li> Auteur de Pomm </li>
+          </ul>
           </p>
           <p>
-            <img src="img/greg.jpg" style="border: 0px;" height="160" width="120" /><img src="img/logo_pragma.png" style="border: 0px;" height="160", width="420" />
+          <img src="img/greg.jpg" style="border: 0px;" height="160" width="120" /><img src="img/logo_pragma.png" style="border: 0px;" height="160", width="420" />
           </p>
         </section>
 
@@ -84,34 +84,34 @@
         <section>
           <h2>Quelques types de Postgresql</h2>
           <p>
-            <ul style="list-style-type: none;">
-              <li>&#10149; boolean, bitchar, bitvar</li>
-              <li>&#10149; strings, uuid, xml, json, inet</li>
-              <li>&#10149; numbers, timestamps with time zone, intervals</li>
-              <li>&#10149; integer et timestamps, ranges</li>
-              <li>&#10149; point, circle, segment, box, polygon</li>
-              <li>&#10149; HStore, LTree, ts_vector, bytea</li>
-              <li>&#10149; types composites, objets</li>
-              <li>&#10149; tableaux de tous les types ci dessus</li>
-              <li>&#10149; <font color="red">Ajoutez votre type ici</font></li>
-            </ul>
+          <ul style="list-style-type: none;">
+            <li>&#10149; boolean, bitchar, bitvar</li>
+            <li>&#10149; strings, uuid, xml, json, inet</li>
+            <li>&#10149; numbers, timestamps with time zone, intervals</li>
+            <li>&#10149; integer et timestamps, ranges</li>
+            <li>&#10149; point, circle, segment, box, polygon</li>
+            <li>&#10149; HStore, LTree, ts_vector, bytea</li>
+            <li>&#10149; types composites, objets</li>
+            <li>&#10149; tableaux de tous les types ci dessus</li>
+            <li>&#10149; <font color="red">Ajoutez votre type ici</font></li>
+          </ul>
           </p>
         </section>
 
         <section>
           <h2>Convertisseurs de Pomm</h2>
           <p>
-            <ul style="list-style-type: none;">
-              <li>&#10149; boolean, <strike>bitchar</strike>, <strike>bitvar</strike></li>
-              <li>&#10149; strings, uuid, xml, json, inet</li>
-              <li>&#10149; numbers, timestamps with time zone, intervals</li>
-              <li>&#10149; integer et timestamps, ranges</li>
-              <li>&#10149; point, circle, segment, <strike>box</strike>, <strike>polygon</strike></li>
-              <li>&#10149; HStore, LTree, ts_vector, bytea</li>
-              <li>&#10149; types composites, objets</li>
-              <li>&#10149; tableaux de tous les types ci dessus</li>
-              <li>&#10149; <font color="red">Ajoutez votre type ici</font></li>
-            </ul>
+          <ul style="list-style-type: none;">
+            <li>&#10149; boolean, <strike>bitchar</strike>, <strike>bitvar</strike></li>
+            <li>&#10149; strings, uuid, xml, json, inet</li>
+            <li>&#10149; numbers, timestamps with time zone, intervals</li>
+            <li>&#10149; integer et timestamps, ranges</li>
+            <li>&#10149; point, circle, segment, <strike>box</strike>, <strike>polygon</strike></li>
+            <li>&#10149; HStore, LTree, ts_vector, bytea</li>
+            <li>&#10149; types composites, objets</li>
+            <li>&#10149; tableaux de tous les types ci dessus</li>
+            <li>&#10149; <font color="red">Ajoutez votre type ici</font></li>
+          </ul>
           </p>
         </section>
 
@@ -170,6 +170,7 @@
               <li>&#10149; Permet de proposer les résultats les plus proches</li>
               <li>&#10149; Permet de proposer une interface simple</li>
               <li>&#10149; Ne gère que les entiers et les timestamps !</li>
+              <li>&#10149; Aucune valeur ajoutée sur un <code>BETWEEN</code>!</li>
             </ul>
           </section>
           <section>
@@ -209,20 +210,240 @@
 <span class="Statement">select</span> * <span class="Special">from</span> restaurant <span class="Special">where</span> <span class="String">'*.italien.*'</span> ~ <span class="Statement">ANY</span> (tags);
             </pre></code>
           </section>
-      </section>
-      <section>
-        <section data-background="img/tourbabel.jpg">
-          <h2>Internationalisation (I18N)</h2>
+          <section>
+            <h3>LTree everywhere !</h3>
+            <code class="fragment"><pre class="vimsql"><span class="Special">order</span> <span class="Special">by</span> <span class="String">'private.evenement.mise_a_la_une'</span> ~ <span class="Statement">any</span>(tags) <span class="Special">desc</span></pre></code>
+            <img class="fragment" src="img/lagaffe_mail.jpg" height="480" width="640" />
+          </section>
         </section>
         <section>
-          <h2>Internationalisation (I18N)</h2>
-          <ul style="list-style-type: none;">
-            <li>&#10149; Proposer des libellés en chaque langue</li>
-            <li>&#10149; Une jointure par label</li>
-          </ul>
-          <p><img src="img/cocotte-pression.jpg" /></p>
+          <section data-background="img/tourbabel.jpg">
+            <h2>Internationalisation (I18N)</h2>
+          </section>
+          <section>
+            <h2>Internationalisation (I18N)</h2>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Proposer des libellés en chaque langue</li>
+              <li>&#10149; Une jointure par label</li>
+            </ul>
+            <p><img src="img/cocotte-pression.jpg" /></p>
+          </section>
+          <section>
+            <h2>Internationalisation (I18N)</h2>
+            <h3>HStore</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Clé =&gt; culture</li>
+              <li>&#10149; valeur =&gt; traduction</li>
+            </ul>
+            <code><pre class="vimsql"><span class="String">&quot;en&quot;</span>=&gt;<span class="String">&quot;hello world&quot;</span>, <span class="String">&quot;fr&quot;</span>=&gt;<span class="String">&quot;salut Jules&quot;</span>
+            </pre></code>
+          </section>
+          <section>
+            <h2>Internationalisation (I18N)</h2>
+            <h3>Modifier le mapping</h3>
+            <code><pre class="vimphp">
+<span class="Structure">class</span> RestaurantMap <span class="Structure">extends</span> BaseRestaurantMap
+<span class="Special">{</span>
+    <span class="StorageClass">protected</span> <span class="Operator">$</span><span class="Identifier">culture</span> <span class="Operator">=</span> '<span class="String">en</span>';
+
+    <span class="StorageClass">public</span> <span class="Define">function</span> getSelectFields<span class="Special">(</span><span class="Operator">$</span><span class="Identifier">alias</span> <span class="Operator">=</span> <span class="Type">null</span><span class="Special">)</span>
+    <span class="Special">{</span>
+        <span class="Operator">$</span><span class="Identifier">fields</span> <span class="Operator">=</span> <span class="Structure">parent</span><span class="Operator">::</span>getSelectFields<span class="Special">(</span><span class="Operator">$</span><span class="Identifier">alias</span><span class="Special">)</span>;
+        <span class="Operator">$</span><span class="Identifier">fields</span><span class="Special">[</span>'<span class="String">label</span>'<span class="Special">]</span> <span class="Operator">=</span> <span class="Function">sprintf</span><span class="Special">(</span>&quot;<span class="String">label-&gt;%s</span>&quot;, <span class="Operator">$</span><span class="Identifier">this</span><span class="Structure">-&gt;</span>culture<span class="Special">)</span>;
+
+        <span class="Statement">return</span> <span class="Operator">$</span><span class="Identifier">fields</span>;
+    <span class="Special">}</span>
+
+    <span class="StorageClass">public</span> <span class="Define">function</span> setCulture<span class="Special">(</span><span class="Operator">$</span><span class="Identifier">culture</span><span class="Special">)</span>
+    <span class="Special">{</span>
+        <span class="Operator">$</span><span class="Identifier">this</span><span class="Structure">-&gt;</span>culture <span class="Operator">=</span> <span class="Operator">$</span><span class="Identifier">culture</span>;
+    <span class="Special">}</span>
+<span class="Special">}</span>
+            </pre></code>
+          </section>
+          <section>
+            <h2>Internationalisation (I18N)</h2>
+            <h3>Modifier le mapping</h3>
+            <code><pre class="vimsql"><span class="Statement">SELECT</span> restaurant_id <span class="Special">as</span> id, ..., label-&gt;en <span class="Special">as</span> label, ... <span class="Special">from</span> <span class="String">&quot;public&quot;</span>.<span class="String">&quot;restaurant&quot;</span> <span class="Special">where</span> ...</pre></code>
+          </section>
         </section>
-      </section>
+        <section>
+          <section data-background="img/composites.jpg">
+            <h2>Données complexes</h2>
+          </section>
+          <section>
+            <h2>Données complexes</h2>
+            <p>Un transformateur électrique : 1 à n enroulements</p>
+            <p>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Un voltage nominal</li>
+              <li>&#10149; Une intensité maximale</li>
+            </ul>
+            </p>
+          </section>
+          <section>
+            <h3>Type enroulement</h3>
+            <code><pre class="vimsql"><span class="Statement">create</span> type transformer_winwing <span class="Special">as</span> (voltage <span class="Type">int4</span>, current <span class="Type">int4</span>);</pre></code>
+          </section>
+          <section>
+            <h3>Table transformateur</h3>
+            <code><pre class="vimsql">
+┌──────────────────┬───────────────────┬─
+│     Colonne      │       Type        │
+├──────────────────┼───────────────────┼─
+│ transformer_id   │ <span class="Type">uuid</span>              │
+│ ref              │ <span class="Type">character</span> <span class="Type">varying</span> │
+│ ei_dimension_id  │ <span class="Type">integer</span>           │
+│ weight           │ <span class="Type">numeric</span>(<span class="Number">3</span>,<span class="Number">1</span>)      │
+.........................................
+│ pri              │ winding           │
+│ secs             │ winding[]         │
+│ inductance       │ <span class="Type">numeric</span>(<span class="Number">5</span>,<span class="Number">3</span>)      │
+└──────────────────┴───────────────────┴─
+            </pre></code>
+          </section>
+          <section>
+            <h3>Chercher...</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Chercher sur des sous éléments de notre type</li>
+            </ul>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> psu <span class="Special">where</span> (psu.pri).voltage = <span class="Number">2200</span>;
+            </pre></code>
+          </section>
+          <section>
+            <h3>Chercher...</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Chercher dans le tableau des sous éléments de notre type</li>
+            </ul>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> psu <span class="Special">where</span> <span class="Number">120</span> = <span class="Statement">ANY</span>((psu.secs).voltage)
+            </pre></code>
+            <code class="fragment"><pre class="vimphp">
+ERROR:  column notation .voltage applied to type transformer_winding[], which is not a composite type
+            </pre></code>
+            <img src="img/rogntudju.jpg" class="fragment" />
+          </section>
+        </section>
+        <section>
+          <section data-background="img/black_board.png">
+            <h2>Les tableaux</h2>
+          </section>
+          <section>
+            <h3>Ont l'air sexy</h3>
+            <p><img src="img/array_sexy.jpg" height="640" width="480" /></p>
+          </section>
+          <section>
+            <h3>Mais peuvent compliquer les choses</h3>
+            <code><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> book <span class="Special">where</span> <span class="Statement">ANY</span>(authors) ~* <span class="String">'victor hugo'</span>;
+            </pre></code>
+            <code><pre class="vimphp">
+ERROR:  syntax error at or near "any"
+            </pre></code>
+          </section>
+          <section>
+            <h2>Sur notre problème de Winding</h2>
+            <h3>Comment chercher un secondaire ?</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Comment chercher un transfo qui sort du 12V ?</li>
+            </ul>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> psu <span class="Special">where</span> <span class="Statement">exists</span> (<span class="Statement">select</span> <span class="Special">true</span> <span class="Special">from</span> <span class="Function">unnest</span>(psu.secs) <span class="Special">as</span> val <span class="Special">where</span> (val).voltage = <span class="Number">120</span>)
+            </pre></code>
+          </section>
+          <section>
+            <h3>Comment chercher un secondaire ?</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Comment chercher un transfo qui sort du 12V ?</li>
+            </ul>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">create</span> <span class="Statement">or</span> <span class="Statement">replace</span> <span class="Special">function</span> public.get_voltage(transformer_winding[])
+ returns <span class="Type">integer</span>[]
+ <span class="Special">language</span> sql
+ immutable
+<span class="Special">as</span> $<span class="Special">function</span>$
+    <span class="Statement">select</span> <span class="Special">array</span>(<span class="Statement">select</span> voltage <span class="Special">from</span> <span class="Function">unnest</span>($<span class="Number">1</span>));
+$<span class="Special">function</span>$
+            </pre></code>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> psu <span class="Special">where</span> <span class="Number">120</span> = <span class="Statement">ANY</span>(get_voltage(psu.secs));
+            </pre></code>
+          </section>
+          <section>
+            <h3>Encadrer le résultat ?</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Range à la rescousse </li>
+            </ul>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> psu <span class="Special">where</span> int4range(<span class="Number">100</span>, <span class="Number">140</span>) @&gt; <span class="Statement">ANY</span>(get_voltage(psu.secs));
+            </pre></code>
+          </section>
+          <section>
+            <h2>Si trop compliqué...</h2>
+            <h3>Restructurer en jointure</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Dénormaliser...  </li>
+              <li class="fragment">&#10149; ou pas</li>
+              <li class="fragment">&#10149; renormaliser peut coûter cher</li>
+            </ul>
+            <img src="img/dali_double_moustache.jpg" />
+          </section>
+        </section>
+        <section>
+          <section data-background="img/Compas.jpg">
+            <h2>Solliciter Euclyde</h2>
+          </section>
+          <section>
+            <h2>Solliciter Euclyde</h2>
+            <h3>Où puis ranger mon vlib ?</h3>
+            <img src="img/vlib.jpg" />
+          </section>
+          <section>
+            <h3>Application portable</h3>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Pour trouver une station avec des places libres </li>
+              <li>&#10149; Utiliser les types géométriques </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Les types géométriques</h2>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Opérateurs de contention</li>
+              <li>&#10149; Opérateurs de distance</li>
+            </ul>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> * <span class="Special">from</span> station <span class="Special">where</span> <span class="Type">circle</span>(<span class="Type">point</span>(<span class="Number">1</span>,<span class="Number">2</span>), <span class="Number">1</span>) @&gt; station.<span class="Function">position</span>
+            </pre></code>
+          </section>
+          <section>
+            <h2>Les types géométriques</h2>
+            <h3>Comment récupérer les disponibilités ?</h3>
+            <code class="fragment"><pre class="vimsql">
+<span class="Statement">select</span> s.id, s.name, last_measure
+<span class="Special">from</span> station s
+  <span class="Special">join</span> lateral (<span class="Statement">select</span> * <span class="Special">from</span> measure <span class="Special">where</span> measure.station_id = s.id <span class="Special">order</span> <span class="Special">by</span> create_at <span class="Special">desc</span> <span class="Special">limit</span> <span class="Number">1</span>) last_measure <span class="Special">on</span> <span class="Special">true</span>
+<span class="Special">where</span>
+<span class="Type">circle</span>(<span class="Type">point</span>(<span class="Number">1</span>,<span class="Number">2</span>), <span class="Number">1</span>) @&gt; s.<span class="Function">position</span>
+;
+            </pre></code>
+            <code class="fragment"><pre class="vimphp">
+┌────┬───────────┬───────────────────────────────────────┐
+│ id │   name    │             last_measure              │
+├────┼───────────┼───────────────────────────────────────┤
+│  4 │ station 4 │ (45,4,3,"2014-02-20 16:42:04.059286") │
+│  1 │ station 1 │ (54,1,4,"2014-02-26 14:53:03.894491") │
+            </pre></code>
+          </section>
+          <section>
+            <h2>It's all about types !</h2>
+            <ul style="list-style-type: none;">
+              <li>&#10149; Une table = un type</li>
+              <li>&#10149; Une vue = un type</li>
+              <li>&#10149; Un composite = un type</li>
+            </ul>
+            <img src="img/lagaffe_dort.jpg" width="640" height="480" />
+        </section>
       </div>
 
     </div>
